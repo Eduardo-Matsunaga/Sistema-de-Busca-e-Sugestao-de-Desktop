@@ -1,5 +1,7 @@
 <?php
 
+/* V001/24 - versao 02-04-2024 */
+
 require_once "../Interfaces/MarcaInterface.php";
 class Marca implements MarcaInterface {
     private $nome;
