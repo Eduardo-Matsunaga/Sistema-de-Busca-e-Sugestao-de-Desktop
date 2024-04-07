@@ -6,6 +6,7 @@ require_once('Marca.php');
 require_once('Especificacoes.php');
 
 
+
 class Produto {
     private $nome;
     private $marca;
@@ -15,11 +16,10 @@ class Produto {
     private $lojasOnline;
 
     // Adicionando injeção de dependências através do construtor
-    public function __construct(string $nome, MarcaInterface $marca, EspecificacoesInterface $especificacoes, string $avaliacoes, float $preco, array $lojasOnline) {
+    public function __construct(string $nome, MarcaInterface $marca, EspecificacoesInterface $especificacoes, float $preco, array $lojasOnline) {
         $this->nome = $nome;
         $this->marca = $marca;
         $this->especificacoes = $especificacoes;
-        $this->avaliacoes = $avaliacoes;
         $this->preco = $preco;
         $this->lojasOnline = $lojasOnline;
     }
@@ -49,13 +49,6 @@ class Produto {
         $this->especificacoes = $especificacoes;
     }
 
-    public function GetAvaliacoes(): string {
-        return $this->avaliacoes;
-    }
-
-    public function SetAvaliacoes(string $avaliacoes): void {
-        $this->avaliacoes = $avaliacoes;
-    }
 
     public function GetPreco(): float {
         return $this->preco;

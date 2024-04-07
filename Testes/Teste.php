@@ -7,26 +7,21 @@ require_once('../Entidades/Marca.php');
 require_once('../Entidades/Especificacoes.php');
 
 
+
 // Função para executar os testes
 function RodarTestes() {
-    // Criando instancias
+    // Criando instâncias
     $marca = new Marca("Minha Marca");
     $especificacoes = new Especificacoes("Minhas especificacoes");
-    $produto = new Produto("Nome do Produto", $marca, $especificacoes, "Avaliações", 100.00, ["Loja1", "Loja2"]);
+    $produto = new Produto("Nome do Produto", $marca, $especificacoes, 100.00, ["Loja1", "Loja2"]);
 
-
-    // Testar getters
+    // Testar getters de Produto
     echo "Nome do Produto: " . $produto->GetNome() . "\n";
     echo "Marca: " . $produto->GetMarca()->GetNome() . "\n";
     echo "Especificações: " . $produto->GetEspecificacoes()->GetDetalhes() . "\n";
     echo "Preço: " . $produto->GetPreco() . "\n";
 
-    echo "Lojas Online:\n";
-    foreach ($produto->GetLojasOnline() as $loja) {
-        echo "- $loja\n";
-    }
-
-    // Testar setters
+    // Testar setters de Produto
     $produto->SetNome("Novo Nome teste");
     $produto->GetMarca()->SetNome("Nova Marca teste");
     $produto->GetEspecificacoes()->SetDetalhes("Nova especificações");
@@ -38,10 +33,9 @@ function RodarTestes() {
     echo "Nova Marca: " . $produto->GetMarca()->GetNome() . "\n";
     echo "Especificações: " . $produto->GetEspecificacoes()->GetDetalhes() . "\n";
     echo "Novo Preço: " . $produto->GetPreco() . "\n";
-    echo "\nLojas Online Atualizadas:\n";
-    foreach ($produto->GetLojasOnline() as $loja) {
-        echo "- $loja\n";
-    }
+
+
+
 }
 
 RodarTestes();
