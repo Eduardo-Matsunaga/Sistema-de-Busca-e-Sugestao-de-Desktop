@@ -8,20 +8,22 @@ require_once('Estoque.php');
 
 class Produto {
 
+    private $id;
     private $nome;
     private $marca;
     private $especificacoes;
+    private $estoque;
     private $preco;
     private $lojasOnline;
 
     // Adicionando injeção de dependências através do construtor
-    public function __construct(string $nome, MarcaInterface $marca, string $especificacoes, float $preco, array $lojasOnline) {
+    public function __construct(int $id, string $nome, MarcaInterface $marca, EstoqueInterface $estoque, string $especificacoes, float $preco, array $lojasOnline) {
         $this->nome = $nome;
         $this->marca = $marca;
         $this->especificacoes = $especificacoes;
-        $this->avaliacoes = $avaliacoes;
         $this->preco = $preco;
         $this->lojasOnline = $lojasOnline;
+
     }
 
     // Getters e Setters
@@ -39,6 +41,14 @@ class Produto {
 
     public function SetMarca(MarcaInterface $marca): void {
         $this->marca = $marca;
+    }
+
+    public function GetEstoque(): EstoqueInterface {
+        return $this->estoque;
+    }
+
+    public function SetEstoque(EstoqueInterface $estoque): void {
+        $this->estoque = $estoque;
     }
 
     public function GetEspecificacoes(): string {
@@ -71,5 +81,13 @@ class Produto {
 
     public function SetLojasOnline(array $lojasOnline): void {
         $this->lojasOnline = $lojasOnline;
+    }
+
+    public function GetId(): float {
+        return $this->id;
+    }
+
+    public function SetId(int $id): void {
+        $this->id = $id;
     }
 }

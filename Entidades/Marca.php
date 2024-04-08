@@ -4,6 +4,7 @@
 
 require_once "../Interfaces/MarcaInterface.php";
 class Marca implements MarcaInterface {
+    
     private $nome;
 
     public function __construct($nome){

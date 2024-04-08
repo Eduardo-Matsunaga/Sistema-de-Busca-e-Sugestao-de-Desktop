@@ -10,7 +10,7 @@ require_once('../Entidades/Estoque.php');
 // Função para executar os testes
 function RodarTestes() {
     // Criar uma instância de Marca
-    /*$marca = new marca("Minha Marca");
+    /*
 
     // Criar uma instância de Marca
     $estoque = new Estoque("Minha Marca");
@@ -49,12 +49,18 @@ function RodarTestes() {
     foreach ($produto->GetLojasOnline() as $loja) {
         echo "- $loja\n";
     }*/
+    $marca = new marca("Minha Marca");
+    $estoque = new Estoque(1, ['teste', 'outroTeste'], true, "teste");
 
-    $estoque = new Estoque(1, ["loja1","loja2","loja3"], "prata");
+    echo "id: " . $estoque->GetId() . "\n";
+    $lojasOnline = $estoque->GetLojasOnline();
+    echo "Lojas Online: " . implode(", ", $lojasOnline) . "\n";
+    echo "Disponivel: " . $estoque->GetDisponibilidade() . "\n";
+    echo "nome: " . $estoque->GetNome() . "\n";
 
-    echo "Nome do Produto: " . $estoque->GetNome() . "\n";
-    echo "Marca: " . $estoque->GetLojasOnline() . "\n";
-    
+    $produto = new Produto(1, "teste", $marca, $estoque, "Especificações", 100.00, ["Loja1", "Loja2"]);
+
+    echo "testedeProduto: " . $produto->GetEstoque()->GetNome();
 }
 
 RodarTestes();
