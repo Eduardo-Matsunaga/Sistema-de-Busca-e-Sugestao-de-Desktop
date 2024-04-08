@@ -3,22 +3,21 @@
 /* V001/24 - versao 02-04-2024 */
 
 require_once('Marca.php');
+require_once('Preco.php');
 
 
 class Produto {
     private $nome;
     private $marca;
     private $especificacoes;
-    private $avaliacoes;
     private $preco;
     private $lojasOnline;
 
     // Adicionando injeção de dependências através do construtor
-    public function __construct(string $nome, MarcaInterface $marca, string $especificacoes, string $avaliacoes, float $preco, array $lojasOnline) {
+    public function __construct(string $nome, MarcaInterface $marca, string $especificacoes, PrecoInterface $preco, array $lojasOnline) {
         $this->nome = $nome;
         $this->marca = $marca;
         $this->especificacoes = $especificacoes;
-        $this->avaliacoes = $avaliacoes;
         $this->preco = $preco;
         $this->lojasOnline = $lojasOnline;
     }
@@ -48,19 +47,11 @@ class Produto {
         $this->especificacoes = $especificacoes;
     }
 
-    public function GetAvaliacoes(): string {
-        return $this->avaliacoes;
-    }
-
-    public function SetAvaliacoes(string $avaliacoes): void {
-        $this->avaliacoes = $avaliacoes;
-    }
-
-    public function GetPreco(): float {
+    public function GetPreco(): PrecoInterface {
         return $this->preco;
     }
 
-    public function SetPreco( float $preco): void {
+    public function SetPreco( PrecoInterface $preco): void {
         $this->preco = $preco;
     }
 
