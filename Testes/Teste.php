@@ -1,9 +1,10 @@
 <?php
 
-/* V001/24 - versao 02-04-2024 */
+/* V002/24 - versao 07-04-2024 */
 
 require_once('../Entidades/Produto.php');
 require_once('../Entidades/Marca.php');
+require_once('../Entidades/LojasOnline.php');
 
 
 // Função para executar os testes
@@ -30,14 +31,17 @@ function RodarTestes() {
     echo "Nova Marca: " . $produto->GetMarca()->GetNome() . "\n";
     echo "Novo Preço: " . $produto->GetPreco() . "\n";
 
+
     // Testar os getters para loja Online
     echo "Lojas Online:\n";
     foreach ($produto->GetLojasOnline() as $loja) {
         echo "- $loja\n";
     }
 
+
     // Testar setters para lojas online
     $produto->SetLojasOnline(["Nova Loja1", "Nova Loja2"]);
+
 
     // Testar novamente os getters para Lojas Online para verificar se os setters funcionaram
     echo "\nLojas Online Atualizadas:\n";
