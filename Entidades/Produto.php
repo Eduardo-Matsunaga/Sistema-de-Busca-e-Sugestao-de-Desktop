@@ -3,18 +3,19 @@
 /* V001/24 - versao 02-04-2024 */
 
 require_once('Marca.php');
+require_once('Estoque.php');
 
 
 class Produto {
+
     private $nome;
     private $marca;
     private $especificacoes;
-    private $avaliacoes;
     private $preco;
     private $lojasOnline;
 
     // Adicionando injeção de dependências através do construtor
-    public function __construct(string $nome, MarcaInterface $marca, string $especificacoes, string $avaliacoes, float $preco, array $lojasOnline) {
+    public function __construct(string $nome, MarcaInterface $marca, string $especificacoes, float $preco, array $lojasOnline) {
         $this->nome = $nome;
         $this->marca = $marca;
         $this->especificacoes = $especificacoes;
